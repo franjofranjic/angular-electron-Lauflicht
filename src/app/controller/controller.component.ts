@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../config.service';
-import { ipcRenderer } from 'electron';
+// Schmeisst Fehler!
+// import { IpcRenderer } from 'electron';
 
 @Component({
   selector: 'app-controller',
@@ -75,25 +76,14 @@ export class ControllerComponent implements OnInit {
     };
 
     this.service.configSelected.emit(this.config);
-    // sent to javascript file
-    ipcRenderer.send('configData', this.config);
+    // Import schmeisst Fehler
+    // this.ipcRenderer.send('ConfigData', this.config);
   }
 
-  setActive(event) {
+  setActive() {
     console.log('active:' + this.isActive);
-    this.service.activated.emit(this.isActive);
-    const customevent = new CustomEvent(
-      'newMessage',
-      {
-        detail: {
-          message: 'Hello World!',
-          time: new Date(),
-        },
-        bubbles: true,
-        cancelable: true
-      }
-    );
-    console.log(customevent);
+    // Import schmeisst Fehler
+    // this.ipcRenderer.send('ConfigData', this.isActive);
   }
 }
 
