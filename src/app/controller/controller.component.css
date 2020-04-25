@@ -32,6 +32,14 @@ h1 {
   max-width: 1000px;
 }
 
+.toggle-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  max-width: 1000px;
+  justify-content: center;
+}
+
 .input {
   padding: 0;
   left: 0;
