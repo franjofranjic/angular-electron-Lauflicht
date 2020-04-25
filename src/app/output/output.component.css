@@ -1,0 +1,9 @@
+
+:host{
+  margin: 20px;
+  border: 1px solid black;
+  height: 200px;
+  padding: 20px;
+  display: flex;
+  border-radius: 5px;
+}

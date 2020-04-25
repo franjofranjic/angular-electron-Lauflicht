@@ -1,0 +1,50 @@
+<div>
+
+  <h1>Controller-Panel</h1>
+
+  <div class="row">
+    <div class="button-group">
+      <label>Automatik-Modus</label>
+      <button class="input" mat-raised-button (click)="setAutomatik()">{{automatikBtn}}</button>
+    </div>
+
+    <div class="button-group">
+    <label>Disco-Modus</label>
+    <button class="input" mat-raised-button (click)="setDisco()">{{discoBtn}}</button>
+    </div>
+
+    <div class="button-group">
+    <mat-form-field class="input">
+      <mat-label>Richtung</mat-label>
+      <mat-select (selectionChange)="setConfig()" [(value)]="direction">
+        <mat-option *ngFor="let direction of directions" [value]="direction.value">
+          {{direction.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+
+    <div class="button-group">
+    <mat-form-field class="input">
+      <mat-label>Muster</mat-label>
+      <mat-select (selectionChange)="setConfig()" [(value)]="pattern">
+        <mat-option *ngFor="let pattern of patterns" [value]="pattern.value">
+          {{pattern.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    </div>
+
+    <div class="button-group">
+      <label>Geschwindigkeit</label>
+      <mat-slider
+        label
+        class="input"
+        min="160"
+        max="8160"
+        [(value)]="velocity"
+        (change)="setConfig()">
+      </mat-slider>
+    </div>
+  </div>
+</div>
