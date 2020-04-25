@@ -1,18 +1,13 @@
-import { Injectable } from '@angular/core';
-import {Observable} from 'rxjs';
+import {EventEmitter, Injectable} from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigService {
 
-  // configSelected = new EventEmitter
+  configSelected = new EventEmitter<any>();
+  activated = new EventEmitter<boolean>();
 
   constructor() { }
 
-}
-
-interface ConfigObject {
-  value: number;
-  viewValue: string;
 }

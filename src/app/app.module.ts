@@ -7,8 +7,8 @@ import { FooterComponent } from './footer/footer.component';
 import { ControllerComponent } from './controller/controller.component';
 import { OutputComponent } from './output/output.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatButtonModule, MatSelectModule, MatSliderModule} from '@angular/material';
-import {NgbButtonsModule} from '@ng-bootstrap/ng-bootstrap';
+import {MatButtonModule, MatSelectModule, MatSliderModule, MatSlideToggleModule} from '@angular/material';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import {NgbButtonsModule} from '@ng-bootstrap/ng-bootstrap';
     MatSliderModule,
     MatSelectModule,
     MatButtonModule,
-    NgbButtonsModule
+    MatSlideToggleModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

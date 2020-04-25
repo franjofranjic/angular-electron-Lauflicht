@@ -1,22 +1,23 @@
 <div>
 
   <h1>Controller-Panel</h1>
+  <mat-slide-toggle color="primary" [(ngModel)]="isActive" (change)="setActive($event)" >Activate</mat-slide-toggle>
 
   <section class="input-group">
     <div class="button-group">
       <label>Automatik-Modus</label>
-      <button class="input" mat-raised-button (click)="setAutomatik()">{{automatikBtn}}</button>
+      <button class="input" mat-raised-button (click)="setAutomatik()" [disabled]="isActive">{{automatikBtn}}</button>
     </div>
 
     <div class="button-group">
     <label>Disco-Modus</label>
-    <button class="input" mat-raised-button (click)="setDisco()">{{discoBtn}}</button>
+    <button class="input" mat-raised-button (click)="setDisco()" [disabled]="isActive">{{discoBtn}}</button>
     </div>
 
     <div class="button-group">
     <mat-form-field class="input">
       <mat-label>Richtung</mat-label>
-      <mat-select (selectionChange)="setConfig()" [(value)]="direction">
+      <mat-select (selectionChange)="setConfig()" [(value)]="direction" [disabled]="isActive">
         <mat-option *ngFor="let direction of directions" [value]="direction.value">
           {{direction.viewValue}}
         </mat-option>
@@ -27,7 +28,7 @@
     <div class="button-group">
     <mat-form-field class="input">
       <mat-label>Muster</mat-label>
-      <mat-select (selectionChange)="setConfig()" [(value)]="pattern">
+      <mat-select (selectionChange)="setConfig()" [(value)]="pattern" [disabled]="isActive">
         <mat-option *ngFor="let pattern of patterns" [value]="pattern.value">
           {{pattern.viewValue}}
         </mat-option>
@@ -38,6 +39,7 @@
     <div class="button-group">
       <label>Geschwindigkeit</label>
       <mat-slider
+        [disabled]="isActive"
         label
         class="input"
         min="160"

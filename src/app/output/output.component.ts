@@ -35,13 +35,11 @@ export class OutputComponent implements OnInit {
   constructor(private service: ConfigService) { }
 
   ngOnInit() {
-    // this.service.configSelected.subscribe(
-    //   value => this.config = value,
-    //   console.log('hei')
-    // );
+    this.service.configSelected.subscribe(
+      value => this.config = value
+    );
     console.log(this.config);
   }
-
 }
 
 interface Config {

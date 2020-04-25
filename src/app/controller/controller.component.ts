@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ConfigService } from '../config.service';
+import { ipcRenderer } from 'electron';
 
 @Component({
   selector: 'app-controller',
@@ -7,7 +8,6 @@ import { ConfigService } from '../config.service';
   styleUrls: ['./controller.component.css']
 })
 export class ControllerComponent implements OnInit {
-
 
   automatikBtn = 'aus';
   discoBtn = 'aus';
@@ -17,6 +17,7 @@ export class ControllerComponent implements OnInit {
   automatikmode = 0;
   direction = 0;
   pattern = 0;
+  isActive: boolean;
 
   patterns: ConfigObject[] = [
     {value: 0, viewValue: 'Muster 1'},
@@ -73,8 +74,26 @@ export class ControllerComponent implements OnInit {
       velocity: this.velocity
     };
 
+    this.service.configSelected.emit(this.config);
+    // sent to javascript file
+    ipcRenderer.send('configData', this.config);
+  }
 
-    // this.service.configSelected.emit(this.config);
+  setActive(event) {
+    console.log('active:' + this.isActive);
+    this.service.activated.emit(this.isActive);
+    const customevent = new CustomEvent(
+      'newMessage',
+      {
+        detail: {
+          message: 'Hello World!',
+          time: new Date(),
+        },
+        bubbles: true,
+        cancelable: true
+      }
+    );
+    console.log(customevent);
   }
 }
 
